@@ -6,7 +6,7 @@
   --normal-font: 400;
   --bold-font: 700;
   --bolder-font: 900;
-  --bg-color: #46da28;
+  --bg-color: #0e319141;
   --primary-color: #b6324e;
   --primary-shadow: #8b8eaf;
   --bottom-margin: 0.5rem;
@@ -43,6 +43,7 @@ a:hover {
 
 body {
   font-family: var(--font-family);
+  background-color: #4fa0ff;
 }
 
 section {
@@ -167,6 +168,58 @@ nav ul li {
   width: 11.875rem;
   height: 11.25rem;
 }
+
+@keyframes progress {
+  0% { --percentage: 0; }
+  100% { --percentage: var(--value); }
+}
+
+@property --percentage {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+.prozent {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+[role="progressbar"] {
+  --percentage: var(--value);
+  --primary: #dd264e;
+  --secondary: rgb(253, 250, 75);
+  --size: 100px;
+  animation: progress 2s 0.5s forwards;
+  width: var(--size);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+[role="progressbar"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: conic-gradient(var(--primary) calc(var(--percentage) * 1%), var(--secondary) 0);
+  mask: radial-gradient(white 55%, transparent 0);
+  mask-mode: alpha;
+  -webkit-mask: radial-gradient(#0000 55%, #000 0);
+  -webkit-mask-mode: alpha;
+}
+
+[role="progressbar"]::after {
+  counter-reset: percentage var(--value);
+  content: counter(percentage) '%';
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: calc(var(--size) / 5);
+  color: var(--primary);
+}
 /* Skills section ends */
 
 /* Projects section */
@@ -209,8 +262,120 @@ nav ul li {
 .project-details {
   margin-bottom: var(--bottom-margin);
 }
-
 /* Projects section ends */
+
+/* Lebenslauf section */
+.timeline{
+  display: block;
+  width: 80%;
+  margin: 150px auto;
+}
+
+.timeline .heading{
+  margin-bottom: 150px;
+}
+
+.timeline > h2 {
+  text-align: center;
+  margin-top: -8rem;
+}
+
+.card{
+  width: 45%;
+  padding: 30px;
+  border-radius: 10px;
+  color: #fff;
+  display: block;
+  margin: -80px 0;
+  position: relative;
+  background: #f00;
+}
+
+.card:nth-child(even){
+  margin-left: auto;
+}
+
+.card:nth-child(even):before{
+  content: '';
+  position: absolute;
+  left: -15%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 5px solid #191919;
+  border-radius: 50%;
+}
+
+.card:nth-child(even):after{
+  content: '';
+  position: absolute;
+  left: -8.5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 7%;
+  height: 2px;
+  background: #fff;
+  z-index: -1;
+}
+
+.card:nth-child(odd):before{
+  content: '';
+  position: absolute;
+  right: -13%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 5px solid #191919;
+  border-radius: 50%;
+}
+
+.card:nth-child(odd):after{
+  content: '';
+  position: absolute;
+  right: -8.5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 7%;
+  height: 2px;
+  background: #fff;
+  z-index: -1;
+}
+
+.card:nth-child(2), .card:nth-child(2):before{
+  background: #ff4f4f;
+}
+.card:nth-child(3), .card:nth-child(3):before{
+  background: #ffb84f;
+}
+.card:nth-child(4), .card:nth-child(4):before{
+  background: #3dca5c;
+}
+.card:nth-child(5), .card:nth-child(5):before{
+  background: #565252;
+}
+.card:nth-child(6), .card:nth-child(6):before{
+  background: #4fa0ff;
+}
+
+.card:nth-child(even) .card-body:before{
+  content: '';
+  position: absolute;
+  left: -12%;
+  top: 0;
+  width: 0px;
+  height: 100%;
+  border: 1px dashed #fff;
+  z-index: -1;
+}
+
+.card-title{
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+/* Lebenslauf section ends */
 
 /* Contacts section */
 .contact {
@@ -250,6 +415,7 @@ nav ul li {
   border: 2px outset var(--primary-color);
   font-size: 0.875rem;
   outline: none;
+  resize: none;
 }
 
 .input-field::placeholder {
@@ -286,9 +452,16 @@ footer {
 /* Footer section ends */
 
 /* Media queries for responsiveness */
+@media screen and (max-width: 900px) {
+  .card:nth-child(even) .card-body:before{
+    border:hidden;
+  } 
+}
+  
 @media screen and (max-width: 720px) {
   nav {
     padding: 1.5rem 1rem;
+
   }
   nav ul {
     position: fixed;
@@ -347,6 +520,11 @@ footer {
     height: 5.25rem;
   }
 
+  [role="progressbar"] {
+    --size: 3rem;
+    font-weight: bold;
+  }
+
   .projects-container {
     flex-direction: column;
   }
@@ -378,3 +556,4 @@ footer {
     max-width: 17.75rem;
   }
 }
+
