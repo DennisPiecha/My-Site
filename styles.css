@@ -6,11 +6,9 @@
   --normal-font: 400;
   --bold-font: 700;
   --bolder-font: 900;
-  --bg-color: #2d3e9e;
+  --bg-color: #46da28;
   --primary-color: #b6324e;
-  --secondary-color: #ff7235;
   --primary-shadow: #8b8eaf;
-  --secondary-shadow: #a17a69;
   --bottom-margin: 0.5rem;
   --bottom-margin-2: 1rem;
   --line-height: 1.7rem;
@@ -334,7 +332,6 @@ footer {
   }
 
   .hero {
-    margin-top: -4rem;
     flex-direction: column;
     gap: 0;
   }
@@ -345,7 +342,7 @@ footer {
   }
 
   .bio {
-    margin-top: -7rem;
+    margin-top: rem;
     width: 20.5rem;
   }
 
