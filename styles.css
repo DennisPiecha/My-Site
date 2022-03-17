@@ -9,7 +9,7 @@
   --bg-color: #0f1f4e;
   --primary-color: #c3294a;
   --secondary-color: hotpink;
-  --primary-shadow: #8b8eaf;
+  --primary-shadow: #1c258a;
   --bottom-margin: 0.5rem;
   --bottom-margin-2: 1rem;
   --line-height: 1.7rem;
@@ -114,6 +114,7 @@ nav ul li {
 .hero img {
   height: 37.5rem;
   width: 37.5rem;
+  object-fit: contain;
 }
 
 .bio {
