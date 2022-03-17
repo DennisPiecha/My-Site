@@ -362,7 +362,7 @@ nav ul li {
   background: #565252;
 }
 .card:nth-child(6), .card:nth-child(6):before{
-  background: #4fa0ff;
+  background: darkblue;
 }
 
 .card:nth-child(even) .card-body:before{
