@@ -6,8 +6,8 @@
   --normal-font: 400;
   --bold-font: 700;
   --bolder-font: 900;
-  --bg-color: #16244dbc;
-  --primary-color: #b6324e;
+  --bg-color: #0f1f4e;
+  --primary-color: #c3294a;
   --secondary-color: hotpink;
   --primary-shadow: #8b8eaf;
   --bottom-margin: 0.5rem;
@@ -26,6 +26,7 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: whitesmoke
   /* border: 2px solid red; */
 }
 
