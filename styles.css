@@ -178,6 +178,12 @@ nav ul li {
   100% { --percentage: var(--value); }
 }
 
+@property --percentage {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
 .prozent {
   display: flex;
   justify-content: center;
